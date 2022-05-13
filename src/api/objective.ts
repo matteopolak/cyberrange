@@ -19,7 +19,7 @@ export interface ObjectiveData {
 export default class Objective {
 	private _tasks: Map<string, Task> = new Map();
 
-	private data: ObjectiveData;
+	public data: ObjectiveData;
 	private http: AxiosInstance;
 
 	constructor(data: ObjectiveData, http: AxiosInstance) {
@@ -35,5 +35,17 @@ export default class Objective {
 		}
 
 		return this._tasks;
+	}
+
+	async complete() {
+		const response = await this.http.patch(
+			`/v1/user/objectives/${this.data.scenario_objective_id}`,
+			{
+				by_instructor: false,
+				operation: 'COMPLETE',
+			},
+		);
+
+		return response;
 	}
 }

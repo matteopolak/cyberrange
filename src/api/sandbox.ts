@@ -47,7 +47,7 @@ export interface SandboxData {
 export default class Sandbox {
 	private _objectives: Map<string, Objective> = new Map();
 
-	private data: SandboxData;
+	public data: SandboxData;
 	private http: AxiosInstance;
 
 	constructor(data: SandboxData, http: AxiosInstance) {

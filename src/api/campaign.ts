@@ -90,7 +90,7 @@ export default class Campaign {
 	private _labs: Map<string, Lab> = new Map();
 	private _details: CampaignInstanceDetails | null = null;
 
-	private data: CampaignData;
+	public data: CampaignData;
 	private http: AxiosInstance;
 
 	constructor(data: CampaignData, http: AxiosInstance) {
@@ -109,16 +109,15 @@ export default class Campaign {
 	}
 
 	async labs() {
-		if (this._details === null)
-			throw new Error('campaign details must be loaded before fetching labs');
 		if (this._labs.size > 0) return this._labs;
+		if (this._details === null) await this.details();
 
 		const response = await this.http.get<LabData[]>(
 			`/v1/user/courses/${this.data.instance_id}/labs`,
 		);
 
 		for (const lab of response.data) {
-			this._labs.set(lab.lab_id, new Lab(lab, this.http, this._details));
+			this._labs.set(lab.lab_id, new Lab(lab, this.http, this._details!));
 		}
 
 		return this._labs;

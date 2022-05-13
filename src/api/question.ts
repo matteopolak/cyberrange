@@ -21,8 +21,12 @@ export interface QuestionDetails {
 	scenario_objective_id: string;
 }
 
+interface toString {
+	toString(): string;
+}
+
 export default class Question {
-	private data: QuestionData;
+	public data: QuestionData;
 	private details: QuestionDetails;
 	private http: AxiosInstance;
 
@@ -36,12 +40,20 @@ export default class Question {
 		this.http = http;
 	}
 
-	async answer(answer: string) {
+	async answer<T extends toString>(answer: T) {
 		const response = await this.http.post<QuestionAnswerResponse>(
 			`/v1/user/objectives/${this.details.scenario_objective_id}/tasks/${this.data.scenario_task_id}/questions/${this.data.task_id}/answer`,
-			{ answer },
+			{ answer: answer.toString() },
 		);
 
 		return response.data.answer_correct;
+	}
+
+	async brute(min: number = 0, max: number = 10_000) {
+		for (let i = min; i <= max; ++i) {
+			if (await this.answer(i)) return i.toString();
+		}
+
+		return null;
 	}
 }

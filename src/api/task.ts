@@ -23,7 +23,7 @@ export interface TaskData {
 export default class Task {
 	private _questions: Map<string, Question> = new Map();
 
-	private data: TaskData;
+	public data: TaskData;
 	private http: AxiosInstance;
 
 	constructor(data: TaskData, http: AxiosInstance) {

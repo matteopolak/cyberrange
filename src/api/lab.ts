@@ -66,7 +66,7 @@ export interface LabData {
 export default class Lab {
 	private _sandbox: Sandbox | null = null;
 
-	private data: LabData;
+	public data: LabData;
 	private http: AxiosInstance;
 	private details: CampaignInstanceDetails;
 
@@ -94,5 +94,22 @@ export default class Lab {
 		);
 
 		return (this._sandbox = new Sandbox(response.data, this.http));
+	}
+
+	async *questions() {
+		const sandbox = await this.sandbox();
+		const objectives = await sandbox.objectives();
+
+		for (const objective of objectives.values()) {
+			const tasks = await objective.tasks();
+
+			for (const task of tasks.values()) {
+				const questions = await task.questions();
+
+				for (const question of questions.values()) {
+					yield question;
+				}
+			}
+		}
 	}
 }
