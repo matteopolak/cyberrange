@@ -1,4 +1,5 @@
-import { AxiosInstance } from 'axios';
+import type { AxiosInstance } from 'axios';
+
 import Lab, { LabData, LabDetail, LabState } from './lab';
 
 export interface CampaignData {

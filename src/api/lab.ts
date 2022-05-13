@@ -1,6 +1,7 @@
-import { AxiosInstance } from 'axios';
-import { CampaignInstanceDetails } from './campaign';
-import Sandbox from './sandbox';
+import type { AxiosInstance } from 'axios';
+
+import type { CampaignInstanceDetails } from './campaign';
+import Sandbox, { SandboxData } from './sandbox';
 
 export interface LabState {
 	is_student_env_in_trouble: boolean;
@@ -88,10 +89,10 @@ export default class Lab {
 
 		if (!labDetails) throw new Error('lab details not found');
 
-		const response = await this.http.get<Sandbox>(
+		const response = await this.http.get<SandboxData>(
 			`/v1/user/sandboxes/${labDetails.sandbox_id}`,
 		);
 
-		return (this._sandbox = response.data);
+		return (this._sandbox = new Sandbox(response.data, this.http));
 	}
 }

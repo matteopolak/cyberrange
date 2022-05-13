@@ -1,4 +1,5 @@
-import { AxiosInstance } from 'axios';
+import type { AxiosInstance } from 'axios';
+
 import Question, { QuestionData } from './question';
 
 export interface TaskData {

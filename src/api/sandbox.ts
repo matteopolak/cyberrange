@@ -1,4 +1,5 @@
-import { AxiosInstance } from 'axios';
+import type { AxiosInstance } from 'axios';
+
 import Objective, { ObjectiveData } from './objective';
 
 export interface ObjectiveSummary {

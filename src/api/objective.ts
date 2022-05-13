@@ -1,4 +1,5 @@
-import { AxiosInstance } from 'axios';
+import type { AxiosInstance } from 'axios';
+
 import Task, { TaskData } from './task';
 
 export interface ObjectiveData {
