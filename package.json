@@ -1,0 +1,33 @@
+{
+  "name": "cyberrange",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./dist/index.js",
+    "fix": "eslint --fix src && prettier --write src/**/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matteopolak/cyberrange.git"
+  },
+  "author": "Matteo Polak (matteopolak@hotmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matteopolak/cyberrange/issues"
+  },
+  "homepage": "https://github.com/matteopolak/cyberrange#readme",
+  "importSort": {
+    ".js, .jsx, .ts, .tsx": {
+      "style": "module",
+      "parser": "typescript"
+    }
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
