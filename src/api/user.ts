@@ -39,16 +39,11 @@ export default class User {
 	private _sandboxes: Map<string, Sandbox> = new Map();
 	private _details: UserDetails | null = null;
 
-	private username: string;
-	private password: string;
 	public http: AxiosInstance = axios.create({
 		baseURL: 'https://ictc-cyberrange.fieldeffect.net/CyberRest/services/rest',
 	});
 
-	constructor(username: string, password: string) {
-		this.username = username;
-		this.password = password;
-	}
+	constructor() {}
 
 	async update(data: Partial<Omit<UserDetails, 'first_name'>>) {
 		const response = await this.http
@@ -66,10 +61,10 @@ export default class User {
 		return (this._details = response.data);
 	}
 
-	async login() {
+	async login(username: string, password: string) {
 		const response = await this.http.post<UserLoginResponse>('/login', {
-			username: this.username,
-			password: this.password,
+			username,
+			password,
 		});
 
 		if (response.data.mfa_required) {

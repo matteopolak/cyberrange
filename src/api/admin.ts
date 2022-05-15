@@ -29,8 +29,8 @@ export interface EmailSettings {
 }
 
 export default class Admin extends User {
-	constructor(username: string, password: string) {
-		super(username, password);
+	constructor() {
+		super();
 	}
 
 	async license() {
