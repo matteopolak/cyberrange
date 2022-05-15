@@ -1,12 +1,13 @@
 {
 	"name": "cyberrange",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "",
 	"main": "src/index.ts",
 	"scripts": {
 		"start": "tsc && node ./src/index.js",
-		"fix": "eslint --fix src && prettier --write src/**/*.ts",
+		"fix": "eslint --fix src/**/*.ts && prettier --write src/**/*.ts",
 		"build": "tsc",
+		"lint": "eslint src/**/*.ts && prettier --check src/**/*.ts",
 		"publish": "npm run fix && npm run build && npm publish"
 	},
 	"repository": {
