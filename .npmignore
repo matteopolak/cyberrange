@@ -2,5 +2,4 @@ tsconfig.json
 .prettierrc
 .gitignore
 .eslintrc.json
-*/**.ts
 .github
