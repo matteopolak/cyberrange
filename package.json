@@ -5,7 +5,9 @@
 	"main": "src/index.ts",
 	"scripts": {
 		"start": "tsc && node ./src/index.js",
-		"fix": "eslint --fix src && prettier --write src/**/*.ts"
+		"fix": "eslint --fix src && prettier --write src/**/*.ts",
+		"build": "tsc",
+		"publish": "npm run fix && npm run build && npm publish"
 	},
 	"repository": {
 		"type": "git",
