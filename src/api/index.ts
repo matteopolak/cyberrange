@@ -20,3 +20,4 @@ export {
 } from './sandbox';
 export { default as Task, TaskData } from './task';
 export { default as User, UserLoginResponse } from './user';
+export { default as Admin } from './admin';

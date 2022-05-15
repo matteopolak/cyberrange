@@ -48,12 +48,4 @@ export default class Question {
 
 		return response.data.answer_correct;
 	}
-
-	async brute(min: number = 0, max: number = 10_000) {
-		for (let i = min; i <= max; ++i) {
-			if (await this.answer(i)) return i.toString();
-		}
-
-		return null;
-	}
 }
