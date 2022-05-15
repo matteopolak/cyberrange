@@ -1,5 +1,7 @@
 ## CyberRange
 
+![Build Status](https://github.com/matteopolak/cyberrange/actions/workflows/check.yml/badge.svg)
+
 An unofficial API wrapper for [CyberRange](https://ictc-cyberrange.fieldeffect.net).
 
 ### Features
