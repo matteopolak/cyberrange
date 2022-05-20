@@ -26,6 +26,6 @@ await user.login();
 
 // Print out all active and expired campaigns (courses)
 console.log(
-	await user.campaigns();
+	await user.campaigns(),
 );
 ```

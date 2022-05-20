@@ -569,6 +569,13 @@ cross-spawn@^7.0.2:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
+cyberrange@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/cyberrange/-/cyberrange-0.0.6.tgz#ef5508ab3f551b3b3b968a01b1214265b8fd4214"
+  integrity sha512-i/1/5bxIjx73lnSlVKeN0uyWvEjKNWDi7tHJdvrY2HxsIj8t3j1xLFQDcKBC3QvlFYA4Q8tS2SWyphzuQMJeLQ==
+  dependencies:
+    axios "^0.27.2"
+
 debug@^4.1.0, debug@^4.1.1, debug@^4.3.2:
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.4.tgz#1319f6579357f2338d3337d2cdd4914bb5dcc865"
